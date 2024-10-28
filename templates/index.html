@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter <br>(USD, EUR, JPY)</h1>
+        <form method="POST" action="/">
+            <label for="amount">Amount (IDR):</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <label for="currency">Convert to:</label>
+            <select id="currency" name="currency" required>
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="jpy">JPY</option>
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result is not none %}
+        <div class="result">
+            <h2>Result: {{ result }} {{ currency_name }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
